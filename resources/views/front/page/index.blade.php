@@ -1,0 +1,2 @@
+{{$result->title}}
+{!! $result->text !!}

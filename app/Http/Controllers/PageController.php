@@ -117,4 +117,13 @@ class PageController extends Controller
     {
         //
     }
+
+    public function front(Request $request,$slug)
+    {
+        $result = Page::where(['slug' => $slug])->first();
+        if(!$result){
+            abort(404);
+        }
+        return view('front.page.index')->with('result',$result);
+    }
 }

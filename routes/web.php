@@ -22,10 +22,13 @@ Route::get('lang/{locale}',function($lang){
     \Session::put('locale',$lang);
     return redirect()->back();
 });
-Route::group(['middleware'=>'language'],function ()
-{
-    Route::get('/home', 'HomeController@index')->name('home');
-    Route::get('/dashboard', 'HomeController@dashboard')->name('dashboard');
-    Route::resource('article','ArticleController');
-    Route::resource('page','PageController');
+Route::group(['middleware'=>'language'],function () {
+    //Frontend
+    Route::get('page/{slug}','PageController@front');
+    //Admin Panel
+    Route::group(['middleware'=>'auth'],function () {
+        Route::get('/dashboard', 'HomeController@dashboard')->name('dashboard');
+        Route::resource('article','ArticleController');
+        Route::resource('page','PageController');
+    });
 });

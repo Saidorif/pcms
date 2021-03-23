@@ -46,7 +46,7 @@
                     <textarea type="text" class="form-control" name="meta_description" id="meta_description">{{ old('meta_description') }}</textarea>
                 </div>
                 <div class="form-group">
-                    <label for="text">{{ trans('forms.article.text') }}</label>
+                    <label for="text">{{ trans('forms.article.full_text') }}</label>
                     <textarea  class="form-control" name="text" id="ckEditorClassic">{{ old('text') }}</textarea>
                 </div>
                 <div class="form-group">
